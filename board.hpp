@@ -6,11 +6,11 @@
 class Board{
 	public:
 		Board(){
-			construct(0, 0);
+			construct(0, 0, 300);
 		}
 		
-		Board(int height, int width){
-			construct(height, width);
+		Board(int height, int width, int speed){
+			construct(height, width, speed);
 		}
 		
 		void initialize(){
@@ -69,7 +69,7 @@ class Board{
 		WINDOW *board_win;
 		int height, width, start_row, start_col;
 		
-		void construct(int height, int width){
+		void construct(int height, int width, int speed){
 		
 		int xMax, yMax;
 			getmaxyx(stdscr, yMax, xMax);
@@ -79,7 +79,7 @@ class Board{
 			start_col = (xMax / 2) - (width / 2);
 			
 			board_win = newwin(height, width, start_row, start_col);
-			wtimeout(board_win, 1000);
+			setTimeout(speed);
 			keypad(board_win, true);
 			
 	}

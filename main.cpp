@@ -1,8 +1,8 @@
 #include <iostream>
 #include <ncursesw/curses.h>
 #include "snakeGame.hpp"
-#include "board.hpp"
-#include "drawable.hpp"
+//#include "board.hpp"
+//#include "drawable.hpp"
 
 #define BOARD_DIM 12
 #define BOARD_ROWS BOARD_DIM
@@ -30,7 +30,7 @@ int main(int argc, char **argv){
 	getch();
 	endwin();
 	
-	std::cout << "Gameover" << std::endl;
+	std::cout << "Gameover" << game.getScore() << std::endl;
 	
 	return 0;
 }

@@ -56,8 +56,8 @@ class SnakeGame{
 	}
 	
 	public:
-		SnakeGame(int height, int width){
-			board = Board(height, width);
+		SnakeGame(int height, int width, int speed = 300){
+			board = Board(height, width, speed);
 			int sb_row = board.getStartRow() + height;
 			int sb_col = board.getStartCol();
 			scoreboard = Scoreboard(width, sb_row, sb_col);

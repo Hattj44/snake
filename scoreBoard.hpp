@@ -14,13 +14,13 @@ class Scoreboard{
 		
 		void initialize(int initial_score){
 			clear();
-			mvwprintw(score_win, 0, 0, "Score:");
+			//mvwprintw(score_win, 0, 0, "Score:");
 			updateScore(initial_score);
 			refresh();
 		}
 		
 		void updateScore(int score){
-			mvwprintw(score_win, 0, score_win->_maxx - 10, "%11llu", score);
+			//mvwprintw(score_win, 0, score_win->_maxx - 10, "%11llu", score);
 		}
 		
 		void clear(){
