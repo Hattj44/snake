@@ -2,6 +2,7 @@
 #include <ncursesw/curses.h>
 #include "drawable.hpp"
 
+ // Konstruktor jabłka, inicjuje pozycję y, x i ustawia ikonę na 'A'
 class Apple : public Drawable{
 	public:
 		Apple(int y, int x){

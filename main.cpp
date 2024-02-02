@@ -30,7 +30,7 @@ int main(int argc, char **argv){
 	getch();
 	endwin();
 	
-	std::cout << "Gameover" << game.getScore() << std::endl;
+	std::cout << "Gameover, you get " << game.getScore() << " score" << std::endl;
 	
 	return 0;
 }

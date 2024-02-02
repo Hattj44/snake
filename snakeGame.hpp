@@ -18,6 +18,7 @@ class SnakeGame{
 	Scoreboard scoreboard;
 	int score;
 	
+	// Funkcja obsługująca kolejny element węża i sprawdzająca kolizje
 	void handleNextPiece(SnakePiece next){
 		if(apple != NULL){
 			switch(board.getCharAt(next.getY(), next.getX())){
@@ -41,6 +42,7 @@ class SnakeGame{
 		snake.addPiece(next);
 	}
 	
+	  // Funkcja tworząca jabłko i dodająca je do tabla
 	void createApple(){
 		int y, x;
 		board.getEmptyCoordinates(y, x);
@@ -48,6 +50,7 @@ class SnakeGame{
 		board.add(*apple);		
 	}
 	
+	 // Funkcja jedzenia jabłka i zwiększania wyniku
 	void eatApple(){
 		delete apple;
 		apple = NULL;
@@ -56,6 +59,7 @@ class SnakeGame{
 	}
 	
 	public:
+		// Konstruktor SnakeGame z parametrami wysokości, szerokości i prędkości
 		SnakeGame(int height, int width, int speed = 300){
 			board = Board(height, width, speed);
 			int sb_row = board.getStartRow() + height;
@@ -65,10 +69,12 @@ class SnakeGame{
 			
 		}
 		
+		// Destruktor SnakeGame do zwalniania pamięci zajmowanej przez jabłko
 		~SnakeGame(){
 			delete apple;
 		}
 		
+		// Funkcja inicjalizacji gry
 		void initialize(){
 			apple = NULL;
 			board.initialize();
@@ -89,6 +95,7 @@ class SnakeGame{
 			}
 		}
 		
+		// Funkcja obsługi wejścia od użytkownika
 		void processInput(){
 			chtype input = board.getInput();
 			switch(input){
@@ -119,6 +126,7 @@ class SnakeGame{
 			}
 		}
 		
+		 // Funkcja aktualizacji stanu gry
 		void updateState(){
 		handleNextPiece(snake.nextHead());
 		
@@ -127,15 +135,18 @@ class SnakeGame{
 			}
 		}
 		
+		 // Funkcja przerysowania ekranu
 		void redraw(){
 			board.refresh();
 			scoreboard.refresh();
 		}
 		
+		// Funkcja sprawdzająca zakończenie gry
 		bool isOver(){
 			return game_over;
 		}
 		
+		 // Funkcja pobierająca aktualny wynik
 		int getScore(){
 			return score;
 		}
